@@ -3610,6 +3610,8 @@ in
 
   goklp = callPackage ../tools/networking/goklp {};
 
+  go-auto-yt = callPackage ../applications/misc/go-auto-yt { };
+
   go-mtpfs = callPackage ../tools/filesystems/go-mtpfs { };
 
   go-sct = callPackage ../tools/X11/go-sct { };
