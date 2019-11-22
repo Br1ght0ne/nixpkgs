@@ -1,4 +1,6 @@
-{ lib, buildPythonApplication, fetchPypi, installShellFiles }:
+{ lib, buildPythonApplication, fetchPypi
+, installShellFiles, pbr
+, flake8, mock, pycodestyle, pylint, tox }:
 
 buildPythonApplication rec {
   pname = "git-machete";
@@ -9,7 +11,12 @@ buildPythonApplication rec {
     sha256 = "114kq396zq45jlibn1lp0nk4lmanj4w1bcn48gi7xzdm0y1nkzfq";
   };
 
-  nativeBuildInputs = [ installShellFiles ];
+  nativeBuildInputs = [ installShellFiles pbr ];
+
+  # TODO: Add missing check inputs (2019-11-22):
+  # - stestr
+  doCheck = false;
+  checkInputs = [ flake8 mock pycodestyle pylint tox ];
 
   postInstall = ''
       installShellCompletion --bash --name git-machete completion/git-machete.completion.bash
