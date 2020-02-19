@@ -2,19 +2,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "topgrade";
-  version = "3.9.0";
+  version = "4.0.0";
 
   src = fetchFromGitHub {
     owner = "r-darwish";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0g9pb4f5skigyahv8kpx7wkvv625lvgnbqz6iq7j7wgixxf4nl1i";
+    sha256 = "1cis5yaz6gdg63h3hzxlf54n2h9magd3hdsl1ndb3s94ib6c5jrl";
   };
 
-  # Delete this on next update; see #79975 for details
-  legacyCargoFetcher = true;
-
-  cargoSha256 = "1y85hl7xl60vsj3ivm6pyd6bvk39wqg25bqxfx00r9myha94iqmd";
+  cargoSha256 = "0b10av37wcrwn4j6l8shrkr2i8skf1vzc7v224pmnvz9fvw8i8m4";
 
   buildInputs = lib.optional stdenv.isDarwin Foundation;
 
